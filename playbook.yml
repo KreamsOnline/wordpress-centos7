@@ -2,7 +2,7 @@
 - name: Install the Wordpress role
   hosts: all
   roles:
-   - common
+   - { role: ../wordpress-centos7 }
 
 
 
