@@ -1,0 +1,18 @@
+---
+- name: Download and unpack latest WordPress
+  unarchive:
+    src: https://wordpress.org/latest.tar.gz
+    dest: "/tmp"
+    remote_src: yes
+
+- name: Move wordpress to directory
+  shell: mv /tmp/wordpress/* /var/www/html
+
+- name: set permissions
+  file:
+    path: /var/www/html/
+    recurse: yes
+    state: directory
+    owner: apache
+    group: apache
+    mode: '0755'

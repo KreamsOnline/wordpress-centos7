@@ -1,0 +1,16 @@
+---
+- name: Install Dependencies
+  become: yes
+  import_tasks: deploy_depends.yml
+
+- name: Enable httpd and mariadb
+  become: yes
+  import_tasks: enable_services.yml
+
+- name: Set up wordpress
+  become: yes
+  import_tasks: start_wordpress.yml
+
+- name: Set up wordpress database
+  become: yes
+  import_tasks: wordpress_db.yml
